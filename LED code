@@ -1,5 +1,5 @@
 #!/usr/bin/env python3           //This code is edited from the Magipi Essentials Handbook for the AIY Voice kit
-import argparse
+import argparse                  //Added libraries are important with the new set up of the code
 import locale
 import logging
 from aiy.board import Board, Led
@@ -8,9 +8,9 @@ from gpiozero import LED
 
 
 import RPi.GPIO as GPIO
-led = LED(6)
+led = LED(6)                   //The LED number may change depending on where the cords are plugged in on the Raspberry Pi
 
-def get_hints(language_code):
+def get_hints(language_code):            //The recongizer from the orginal code must change because of the updated libraries 
     if language_code.startswith('en_'):
         return ('turn on the light',
                 'turn off the light',
@@ -21,8 +21,6 @@ def get_hints(language_code):
 def locale_language():
     language, _ = locale.getdefaultlocale()
     return language
-
-
 
 def main():
  logging.basicConfig(level=logging.DEBUG)
